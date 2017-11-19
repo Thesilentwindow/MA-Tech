@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.DirectoryServices;
+using System.DirectoryServices.AccountManagement;
+
 
 namespace AssignmentSystem
 {
@@ -26,12 +28,40 @@ namespace AssignmentSystem
             //ldapConn.AuthenticationType = AuthenticationTypes.Anonymous;
             //DirectorySearcher ds = new DirectorySearcher(ldapConn);
             //ds.Filter = ("objectClass=*");
+            string result = LdapCheck(tb_Username.Text);
+
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + result + "');", true);
         }
 
-        public bool LdapConnCheck()
+        public string LdapCheck(string uName)
         {
-            DirectoryEntry ldapConn = new DirectoryEntry("ldap://192.168.1.13");
+            DirectoryEntry directoryEntry = new DirectoryEntry("LDAP://tand.local");
 
+            try
+            {
+                PrincipalContext AD = new PrincipalContext(ContextType.Domain, "tand.local");
+
+                UserPrincipal test = new UserPrincipal(AD);
+                test.SamAccountName = uName;
+
+                PrincipalSearcher searcher = new PrincipalSearcher(test);
+                UserPrincipal resutPrincipal = (UserPrincipal)searcher.FindOne();
+                searcher.Dispose();
+
+                return resutPrincipal.GivenName;
+                //if (directoryEntry.Properties.Count > 0)
+                //{
+                //    return "yup";
+                //}
+                //else
+                //{
+                //    return "nope";
+                //}
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
 
         }
     }
