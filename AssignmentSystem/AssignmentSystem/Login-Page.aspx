@@ -20,8 +20,9 @@
 
                     <asp:TextBox runat="server" ID="tb_Username" ReadOnly="False" CssClass="form-control" placeholder="Username"></asp:TextBox>
                     <asp:TextBox runat="server" ID="tb_Password" CssClass="form-control" placeholder="password" />
+                    <br />
                     <asp:Button runat="server" ID="btn_Login" Text="Login" CssClass="btn btn-lg btn-primary btn-block" OnClick="btn_Login_OnClick" UseSubmitBehavior="False" CausesValidation="False" />
-
+                    
                     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Modal Test</button>
                 </div>
 

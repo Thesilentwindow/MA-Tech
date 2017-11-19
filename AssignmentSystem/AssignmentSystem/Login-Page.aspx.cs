@@ -28,12 +28,22 @@ namespace AssignmentSystem
             //ldapConn.AuthenticationType = AuthenticationTypes.Anonymous;
             //DirectorySearcher ds = new DirectorySearcher(ldapConn);
             //ds.Filter = ("objectClass=*");
-            string result = LdapCheck(tb_Username.Text);
+            string result;
+            bool loginVal = ValidateCredentials(tb_Username.Text, tb_Password.Text);
+
+            if (loginVal)
+            {
+                result = "Valid Credentials";
+            }
+            else
+            {
+                result = "Invalid Credentials";
+            }
 
             ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + result + "');", true);
         }
 
-        public string LdapCheck(string uName)
+        public string LdapCheck(string uName, string pWord)
         {
             DirectoryEntry directoryEntry = new DirectoryEntry("LDAP://tand.local");
 
@@ -49,20 +59,30 @@ namespace AssignmentSystem
                 searcher.Dispose();
 
                 return resutPrincipal.GivenName;
-                //if (directoryEntry.Properties.Count > 0)
-                //{
-                //    return "yup";
-                //}
-                //else
-                //{
-                //    return "nope";
-                //}
+                if (directoryEntry.Properties.Count > 0)
+                {
+                    return "yup";
+                }
+                else
+                {
+                    return "nope";
+                }
+
             }
             catch (Exception e)
             {
                 return e.ToString();
             }
 
+        }
+
+        public bool ValidateCredentials(string uName, string pWord)
+        {   
+            using (PrincipalContext pContext = new PrincipalContext(ContextType.Domain, "tand.local"))
+            {
+                bool isValid = pContext.ValidateCredentials(uName, pWord);
+                return isValid;
+            }
         }
     }
 }
