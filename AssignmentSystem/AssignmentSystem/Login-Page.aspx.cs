@@ -8,6 +8,7 @@ using System.DirectoryServices;
 using System.DirectoryServices.Protocols;
 using System.DirectoryServices.AccountManagement;
 using System.Net;
+using System.Threading;
 
 
 namespace AssignmentSystem
@@ -38,7 +39,6 @@ namespace AssignmentSystem
                 user = new Users(tb_Username.Text);
                 Session["Account"] = user.GetAccountDisplayInfo();
                 Response.Redirect("Assignments.aspx");
-
             }
             else
             {
@@ -66,11 +66,11 @@ namespace AssignmentSystem
                 }
                 catch (LdapException e)
                 {
-                    if (ERROR_LOGON_FAILURE == e.ErrorCode)
-                    {
-                        return false;
-                    }
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + e.ToString() + "');", true);
+                    //if (ERROR_LOGON_FAILURE == e.ErrorCode)
+                    //{
+                    //    return false;
+                    //}
+                    return false;
                 }
             }
             return true;

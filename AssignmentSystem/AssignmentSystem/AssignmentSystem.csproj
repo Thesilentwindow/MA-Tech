@@ -97,6 +97,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\TandDB.mdf" />
+    <Content Include="App_Data\TandDB_log.ldf">
+      <DependentUpon>TandDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Assignments.aspx" />
     <Content Include="bin\Microsoft.AI.Agent.Intercept.dll" />
     <Content Include="bin\Microsoft.AI.DependencyCollector.dll" />
@@ -173,7 +177,6 @@
     <Compile Include="Users.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

@@ -42,19 +42,25 @@ namespace AssignmentSystem
 
         public string GetAccountDisplayInfo()
         {
-            PrincipalContext pc = new PrincipalContext(ContextType.Domain, "tand.local");
-            UserPrincipal userPrincipalTest = new UserPrincipal(pc);
+            try
+            {
+                PrincipalContext pc = new PrincipalContext(ContextType.Domain, "tand.local");
+                UserPrincipal userPrincipalTest = new UserPrincipal(pc);
 
-            userPrincipalTest.SamAccountName = Username;
+                userPrincipalTest.SamAccountName = Username;
 
 
-            PrincipalSearcher searcher = new PrincipalSearcher(userPrincipalTest);
-            UserPrincipal resultPrincipal = (UserPrincipal)searcher.FindOne();
-            searcher.Dispose();
+                PrincipalSearcher searcher = new PrincipalSearcher(userPrincipalTest);
+                UserPrincipal resultPrincipal = (UserPrincipal)searcher.FindOne();
+                searcher.Dispose();
 
-            string resultToRturn = "Welcome: " + resultPrincipal.DisplayName + " --- " + resultPrincipal.EmailAddress;
-
-            return resultToRturn;
+                string resultToRturn = "Welcome: " + resultPrincipal.DisplayName + " --- " + resultPrincipal.EmailAddress;
+                return resultToRturn;
+            }
+            catch (Exception ex)
+            {
+                return string.Empty;
+            }
         }
 
         public bool ValidateUser()
