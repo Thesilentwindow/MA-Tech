@@ -49,13 +49,58 @@ namespace AssignmentSystem {
         protected global::System.Web.UI.WebControls.SqlDataSource TandDBSource;
         
         /// <summary>
-        /// SqlDataSource1 control.
+        /// div_tilføj control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_tilføj;
+        
+        /// <summary>
+        /// tb_Titel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tb_Titel;
+        
+        /// <summary>
+        /// tb_Beskrivelse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tb_Beskrivelse;
+        
+        /// <summary>
+        /// tb_ansvarlig control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tb_ansvarlig;
+        
+        /// <summary>
+        /// lbl_Result control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Result;
+        
+        /// <summary>
+        /// btn_Insert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Insert;
         
         /// <summary>
         /// btn_Logout control.

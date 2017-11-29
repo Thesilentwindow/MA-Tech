@@ -17,15 +17,10 @@
                 <div class="form-signin">
                     <h3 class="form-signin-heading">Assignment Center</h3>
                     <hr class="colorgraph" />
-
                     <asp:TextBox runat="server" ID="tb_Username" CssClass="form-control" placeholder="Username"></asp:TextBox>
                     <asp:TextBox runat="server" ID="tb_Password" CssClass="form-control" placeholder="Password" TextMode="Password" />
-                    <br />
                     <asp:Button runat="server" ID="btn_Login" Text="Login" CssClass="btn btn-lg btn-primary btn-block" OnClick="btn_Login_OnClick" UseSubmitBehavior="False" CausesValidation="False" />
-                    
-                    <%--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Modal Test</button>--%>
                 </div>
-
             </div>
         </div>
     </form>

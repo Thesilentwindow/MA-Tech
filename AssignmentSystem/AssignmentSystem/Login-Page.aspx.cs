@@ -16,11 +16,7 @@ namespace AssignmentSystem
     public partial class Login_Page : System.Web.UI.Page
     {
         //Global Variables
-        private Users user;
-        private const string _domain = "tand.local";
-        private const int ERROR_LOGON_FAILURE = 0x31;
-
-
+        private Users _user;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -31,33 +27,24 @@ namespace AssignmentSystem
 
         protected void btn_Login_OnClick(object sender, EventArgs e)
         {
-                user = new Users(tb_Username.Text, tb_Password.Text);
+                _user = new Users(tb_Username.Text, tb_Password.Text);
 
-            if (user.LoginValidation())
+            if (_user.LoginValidation())
             {
-                Session["Account"] = user.GetAccountDisplayInfo();
+                //Setting Session Variables
+                Session["LoggedIn"] = 1;
+                Session["Account"] = _user.GetAccountDisplayInfo();
+                Session["User"] = _user.Username;
+                Session["Authority"] = _user.Authority;
+
                 Response.Redirect("Assignments.aspx");
             }
             else
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Invalid Credentials" + "');", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Prøv igen, hvis problemet fortsætter, så kontakt en administrator" + "');", true);
             }
 
 
-        }
-
-        public bool ValidateCredentials(string uName, string pWord)
-        {
-            this.user = new Users(uName, pWord);
-
-            if (user.ValidateUser())
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
     }
 }
