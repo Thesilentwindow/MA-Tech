@@ -3,15 +3,8 @@
   <Class Name="AssignmentSystem.Users">
     <Position X="0.5" Y="0.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAIAIQAAAAAAAAQAAAAAAABgAEABCCAAAAAAAQAA=</HashCode>
+      <HashCode>AAAAAAAIQAAAAAAAAQAAAAAAAhAAEABCCAAAAAAAAAA=</HashCode>
       <FileName>Users.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Assignment">
-    <Position X="4.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>gAAAAAAAAAAgAEAACAAAAQAAAAAAAAABAAAAAAAAAAA=</HashCode>
-      <FileName>Assignement.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

@@ -138,9 +138,9 @@
     <Content Include="Content\js\bootstrap.bundle.min.js.map" />
     <Content Include="Content\js\bootstrap.js.map" />
     <Content Include="Content\js\bootstrap.min.js.map" />
-    <Content Include="ClassDiagram1.cd" />
     <Content Include="ClassDiagram2.cd" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
+    <None Include="Properties\PublishProfiles\Test2.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -163,9 +163,12 @@
     <Compile Include="Assignments.aspx.designer.cs">
       <DependentUpon>Assignments.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Computers.cs" />
+    <Compile Include="Encrypt.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Logger.cs" />
     <Compile Include="Login-Page.aspx.cs">
       <DependentUpon>Login-Page.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

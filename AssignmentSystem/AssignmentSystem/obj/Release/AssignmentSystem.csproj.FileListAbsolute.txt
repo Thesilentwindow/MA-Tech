@@ -17,3 +17,4 @@ C:\Users\administrator\Source\Repos\MA-Tech\AssignmentSystem\AssignmentSystem\bi
 C:\Users\administrator\Source\Repos\MA-Tech\AssignmentSystem\AssignmentSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\administrator\Source\Repos\MA-Tech\AssignmentSystem\AssignmentSystem\obj\Release\AssignmentSystem.dll
 C:\Users\administrator\Source\Repos\MA-Tech\AssignmentSystem\AssignmentSystem\obj\Release\AssignmentSystem.pdb
+C:\Users\administrator\Source\Repos\MA-Tech\AssignmentSystem\AssignmentSystem\obj\Release\AssignmentSystem.csprojResolveAssemblyReference.cache

@@ -26,38 +26,34 @@
 
                 <asp:GridView ID="OpgaveView" runat="server" AllowPaging="True" PageSize="20" AutoGenerateColumns="False" DataKeyNames="AktivitetId" DataSourceID="TandDBSource" GridLines="None" CssClass="table table-light table-hover">
                     <Columns>
-                        <asp:BoundField DataField="AktivitetId" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="AktivitetId" />
+                        <asp:BoundField DataField="AktivitetId" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="AktivitetId" />
                         <asp:BoundField DataField="AktivitetTitel" HeaderText="Titel" SortExpression="AktivitetTitel" />
                         <asp:BoundField DataField="AktivitetBeskrivelse" HeaderText="Beskrivelse" SortExpression="AktivitetBeskrivelse" />
-                        <asp:BoundField DataField="AktivitetDato" HeaderText="Dato" SortExpression="AktivitetDato" />
-                        <asp:BoundField DataField="AktivitetAnsvarlig" HeaderText="Ansvarlig" SortExpression="AktivitetAnsvarlig" />
+                        <asp:BoundField DataField="AktivitetDato" HeaderText="Dato" SortExpression="AktivitetDato" ReadOnly="True" />
+                        <asp:BoundField DataField="AktivitetAnsvarlig" HeaderText="Ansvarlig" SortExpression="AktivitetAnsvarlig" ReadOnly="True" />
                     </Columns>
                 </asp:GridView>
 
-                <asp:SqlDataSource ID="TandDBSource" runat="server" ConnectionString="<%$ ConnectionStrings:TandConString %>" SelectCommand="SELECT [AktivitetId], [AktivitetTitel], [AktivitetBeskrivelse], [AktivitetDato], [AktivitetAnsvarlig] FROM [Opgaver]" DeleteCommand="DELETE FROM [Opgaver] WHERE [AktivitetId] = @original_AktivitetId AND [AktivitetTitel] = @original_AktivitetTitel AND [AktivitetBeskrivelse] = @original_AktivitetBeskrivelse AND [AktivitetDato] = @original_AktivitetDato AND [AktivitetAnsvarlig] = @original_AktivitetAnsvarlig" ConflictDetection="CompareAllValues" InsertCommand="INSERT INTO [Opgaver] ([AktivitetTitel], [AktivitetBeskrivelse], [AktivitetDato], [AktivitetAnsvarlig]) VALUES (@AktivitetTitel, @AktivitetBeskrivelse, @AktivitetDato, @AktivitetAnsvarlig)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [Opgaver] SET [AktivitetTitel] = @AktivitetTitel, [AktivitetBeskrivelse] = @AktivitetBeskrivelse, [AktivitetDato] = @AktivitetDato, [AktivitetAnsvarlig] = @AktivitetAnsvarlig WHERE [AktivitetId] = @original_AktivitetId AND [AktivitetTitel] = @original_AktivitetTitel AND [AktivitetBeskrivelse] = @original_AktivitetBeskrivelse AND [AktivitetDato] = @original_AktivitetDato AND [AktivitetAnsvarlig] = @original_AktivitetAnsvarlig">
+                <asp:SqlDataSource ID="TandDBSource" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionConString %>" SelectCommand="SELECT [AktivitetId], [AktivitetTitel], [AktivitetBeskrivelse], [AktivitetAnsvarlig], [AktivitetDato] FROM [Opgaver]" DeleteCommand="DELETE FROM [Opgaver] WHERE [AktivitetId] = @original_AktivitetId AND [AktivitetTitel] = @original_AktivitetTitel AND [AktivitetBeskrivelse] = @original_AktivitetBeskrivelse AND [AktivitetAnsvarlig] = @original_AktivitetAnsvarlig AND [AktivitetDato] = @original_AktivitetDato" ConflictDetection="CompareAllValues" InsertCommand="INSERT INTO [Opgaver] ([AktivitetTitel], [AktivitetBeskrivelse], [AktivitetAnsvarlig], [AktivitetDato]) VALUES (@AktivitetTitel, @AktivitetBeskrivelse, @AktivitetAnsvarlig, @AktivitetDato)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [Opgaver] SET [AktivitetTitel] = @AktivitetTitel, [AktivitetBeskrivelse] = @AktivitetBeskrivelse  WHERE [AktivitetId] = @original_AktivitetId AND [AktivitetTitel] = @original_AktivitetTitel AND [AktivitetBeskrivelse] = @original_AktivitetBeskrivelse" OnSelecting="TandDBSource_Selecting">
                     <DeleteParameters>
                         <asp:Parameter Name="original_AktivitetId" Type="Int32" />
                         <asp:Parameter Name="original_AktivitetTitel" Type="String" />
                         <asp:Parameter Name="original_AktivitetBeskrivelse" Type="String" />
-                        <asp:Parameter Name="original_AktivitetDato" DbType="Date" />
                         <asp:Parameter Name="original_AktivitetAnsvarlig" Type="String" />
+                        <asp:Parameter DbType="Date" Name="original_AktivitetDato" />
                     </DeleteParameters>
                     <InsertParameters>
                         <asp:Parameter Name="AktivitetTitel" Type="String" />
                         <asp:Parameter Name="AktivitetBeskrivelse" Type="String" />
-                        <asp:Parameter Name="AktivitetDato" DbType="Date" />
                         <asp:Parameter Name="AktivitetAnsvarlig" Type="String" />
+                        <asp:Parameter DbType="Date" Name="AktivitetDato" />
                     </InsertParameters>
                     <UpdateParameters>
                         <asp:Parameter Name="AktivitetTitel" Type="String" />
                         <asp:Parameter Name="AktivitetBeskrivelse" Type="String" />
-                        <asp:Parameter Name="AktivitetDato" DbType="Date" />
-                        <asp:Parameter Name="AktivitetAnsvarlig" Type="String" />
                         <asp:Parameter Name="original_AktivitetId" Type="Int32" />
                         <asp:Parameter Name="original_AktivitetTitel" Type="String" />
                         <asp:Parameter Name="original_AktivitetBeskrivelse" Type="String" />
-                        <asp:Parameter Name="original_AktivitetDato" DbType="Date" />
-                        <asp:Parameter Name="original_AktivitetAnsvarlig" Type="String" />
                     </UpdateParameters>
                 </asp:SqlDataSource>
 

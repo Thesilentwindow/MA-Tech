@@ -81,6 +81,7 @@ namespace AssignmentSystem
             }
             catch (Exception ex)
             {
+                
                 return string.Empty;
             }
         }
@@ -114,26 +115,35 @@ namespace AssignmentSystem
             PrincipalContext pContext = new PrincipalContext(ContextType.Domain, Domain);
 
             //her finder man gruppen som man leder efter
-            GroupPrincipal userGroup = GroupPrincipal.FindByIdentity(pContext, "TestGroup");
-            GroupPrincipal adminGroup = GroupPrincipal.FindByIdentity(pContext, "TestAdminGroup");
+            GroupPrincipal GuestGroup = GroupPrincipal.FindByIdentity(pContext, "WebGuests");
+            GroupPrincipal userGroup = GroupPrincipal.FindByIdentity(pContext, "Webusers");
+            GroupPrincipal adminGroup = GroupPrincipal.FindByIdentity(pContext, "WebAdmins");
 
             //findes gruppen gå videre
-
             if (adminGroup != null)
             {
-                foreach (Principal p2 in adminGroup.GetMembers())
+                foreach (Principal adminPrincipal in adminGroup.GetMembers())
                 {
-                    if (p2.SamAccountName == Username)
+                    if (adminPrincipal.SamAccountName == Username)
+                    {
+                        return 3;
+                    }
+                } 
+            }else if (userGroup != null)
+            {
+                foreach (Principal userPrincipal in userGroup.GetMembers())
+                {
+                    if (userPrincipal.SamAccountName == Username)
                     {
                         return 2;
                     }
                 }
             }
-            else if (userGroup != null)
+            else if (GuestGroup != null)
             {
-                foreach (Principal p in userGroup.GetMembers())
+                foreach (Principal guestPrincipal in GuestGroup.GetMembers())
                 {
-                    if (p.SamAccountName == Username)
+                    if (guestPrincipal.SamAccountName == Username)
                     {
                         return 1;
                     }

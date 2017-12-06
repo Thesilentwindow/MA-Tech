@@ -10,163 +10,163 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
-      <publishTime>11/12/2017 13:40:56</publishTime>
+      <publishTime>12/11/2017 13:40:56</publishTime>
     </File>
     <File Include="App_Data/TandDB.mdf">
-      <publishTime>11/27/2017 09:39:35</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="App_Data/TandDB_log.ldf">
-      <publishTime>11/27/2017 09:39:35</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Assignments.aspx">
-      <publishTime>11/26/2017 18:37:23</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/ApplicationInsights.config">
-      <publishTime>11/12/2017 13:40:56</publishTime>
+      <publishTime>12/11/2017 13:40:56</publishTime>
     </File>
     <File Include="bin/AssignmentSystem.dll">
-      <publishTime>11/27/2017 09:42:07</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
-      <publishTime>11/12/2017 13:40:56</publishTime>
+      <publishTime>12/11/2017 13:40:56</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.DependencyCollector.dll">
-      <publishTime>11/12/2017 13:40:56</publishTime>
+      <publishTime>12/11/2017 13:40:56</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
-      <publishTime>11/12/2017 13:40:56</publishTime>
+      <publishTime>12/11/2017 13:40:56</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
-      <publishTime>11/12/2017 13:40:56</publishTime>
+      <publishTime>12/11/2017 13:40:56</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Web.dll">
-      <publishTime>11/12/2017 13:40:56</publishTime>
+      <publishTime>12/11/2017 13:40:56</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.WindowsServer.dll">
-      <publishTime>11/12/2017 13:40:56</publishTime>
+      <publishTime>12/11/2017 13:40:56</publishTime>
     </File>
     <File Include="bin/Microsoft.ApplicationInsights.dll">
-      <publishTime>11/12/2017 13:40:56</publishTime>
+      <publishTime>12/11/2017 13:40:56</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
-      <publishTime>11/12/2017 13:40:57</publishTime>
+      <publishTime>12/11/2017 13:40:57</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
-      <publishTime>11/12/2017 13:41:00</publishTime>
+      <publishTime>12/11/2017 13:41:00</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
-      <publishTime>11/12/2017 13:41:00</publishTime>
+      <publishTime>12/11/2017 13:41:00</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
-      <publishTime>11/12/2017 13:41:00</publishTime>
+      <publishTime>12/11/2017 13:41:00</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
-      <publishTime>11/12/2017 13:41:00</publishTime>
+      <publishTime>12/11/2017 13:41:00</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
-      <publishTime>11/12/2017 13:41:00</publishTime>
+      <publishTime>12/11/2017 13:41:00</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
-      <publishTime>11/12/2017 13:41:00</publishTime>
+      <publishTime>12/11/2017 13:41:00</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
-      <publishTime>11/12/2017 13:41:00</publishTime>
+      <publishTime>12/11/2017 13:41:00</publishTime>
     </File>
     <File Include="bin/roslyn/System.Collections.Immutable.dll">
-      <publishTime>11/12/2017 13:41:00</publishTime>
+      <publishTime>12/11/2017 13:41:00</publishTime>
     </File>
     <File Include="bin/roslyn/System.Reflection.Metadata.dll">
-      <publishTime>11/12/2017 13:41:00</publishTime>
+      <publishTime>12/11/2017 13:41:00</publishTime>
     </File>
     <File Include="bin/roslyn/vbc.exe">
-      <publishTime>11/12/2017 13:41:00</publishTime>
+      <publishTime>12/11/2017 13:41:00</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe">
-      <publishTime>11/12/2017 13:41:01</publishTime>
+      <publishTime>12/11/2017 13:41:01</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
-      <publishTime>11/12/2017 13:41:01</publishTime>
+      <publishTime>12/11/2017 13:41:01</publishTime>
     </File>
     <File Include="ClassDiagram1.cd">
-      <publishTime>11/27/2017 08:24:26</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/css/bootstrap-grid.css">
-      <publishTime>11/12/2017 13:57:27</publishTime>
+      <publishTime>12/11/2017 13:57:27</publishTime>
     </File>
     <File Include="Content/css/bootstrap-grid.css.map">
-      <publishTime>11/12/2017 13:57:27</publishTime>
+      <publishTime>12/11/2017 13:57:27</publishTime>
     </File>
     <File Include="Content/css/bootstrap-grid.min.css">
-      <publishTime>11/12/2017 13:57:27</publishTime>
+      <publishTime>12/11/2017 13:57:27</publishTime>
     </File>
     <File Include="Content/css/bootstrap-grid.min.css.map">
-      <publishTime>11/12/2017 13:57:27</publishTime>
+      <publishTime>12/11/2017 13:57:27</publishTime>
     </File>
     <File Include="Content/css/bootstrap-reboot.css">
-      <publishTime>11/12/2017 13:57:27</publishTime>
+      <publishTime>12/11/2017 13:57:27</publishTime>
     </File>
     <File Include="Content/css/bootstrap-reboot.css.map">
-      <publishTime>11/12/2017 13:57:27</publishTime>
+      <publishTime>12/11/2017 13:57:27</publishTime>
     </File>
     <File Include="Content/css/bootstrap-reboot.min.css">
-      <publishTime>11/12/2017 13:57:28</publishTime>
+      <publishTime>12/11/2017 13:57:28</publishTime>
     </File>
     <File Include="Content/css/bootstrap-reboot.min.css.map">
-      <publishTime>11/12/2017 13:57:28</publishTime>
+      <publishTime>12/11/2017 13:57:28</publishTime>
     </File>
     <File Include="Content/css/bootstrap.css">
-      <publishTime>11/12/2017 13:57:28</publishTime>
+      <publishTime>12/11/2017 13:57:28</publishTime>
     </File>
     <File Include="Content/css/bootstrap.css.map">
-      <publishTime>11/12/2017 13:57:28</publishTime>
+      <publishTime>12/11/2017 13:57:28</publishTime>
     </File>
     <File Include="Content/css/bootstrap.min.css">
-      <publishTime>11/12/2017 13:57:28</publishTime>
+      <publishTime>12/11/2017 13:57:28</publishTime>
     </File>
     <File Include="Content/css/bootstrap.min.css.map">
-      <publishTime>11/12/2017 13:57:28</publishTime>
+      <publishTime>12/11/2017 13:57:28</publishTime>
     </File>
     <File Include="Content/Form-Signin.css">
-      <publishTime>11/12/2017 14:16:12</publishTime>
+      <publishTime>12/11/2017 14:16:12</publishTime>
     </File>
     <File Include="Content/js/bootstrap.bundle.js">
-      <publishTime>11/12/2017 13:57:27</publishTime>
+      <publishTime>12/11/2017 13:57:27</publishTime>
     </File>
     <File Include="Content/js/bootstrap.bundle.js.map">
-      <publishTime>11/12/2017 13:57:27</publishTime>
+      <publishTime>12/11/2017 13:57:27</publishTime>
     </File>
     <File Include="Content/js/bootstrap.bundle.min.js">
-      <publishTime>11/12/2017 13:57:27</publishTime>
+      <publishTime>12/11/2017 13:57:27</publishTime>
     </File>
     <File Include="Content/js/bootstrap.bundle.min.js.map">
-      <publishTime>11/12/2017 13:57:27</publishTime>
+      <publishTime>12/11/2017 13:57:27</publishTime>
     </File>
     <File Include="Content/js/bootstrap.js">
-      <publishTime>11/12/2017 13:57:27</publishTime>
+      <publishTime>12/11/2017 13:57:27</publishTime>
     </File>
     <File Include="Content/js/bootstrap.js.map">
-      <publishTime>11/12/2017 13:57:27</publishTime>
+      <publishTime>12/11/2017 13:57:27</publishTime>
     </File>
     <File Include="Content/js/bootstrap.min.js">
-      <publishTime>11/12/2017 13:57:27</publishTime>
+      <publishTime>12/11/2017 13:57:27</publishTime>
     </File>
     <File Include="Content/js/bootstrap.min.js.map">
-      <publishTime>11/12/2017 13:57:27</publishTime>
+      <publishTime>12/11/2017 13:57:27</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>11/12/2017 13:40:57</publishTime>
+      <publishTime>12/11/2017 13:40:57</publishTime>
     </File>
     <File Include="Login-Page.aspx">
-      <publishTime>11/26/2017 22:11:12</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="package-lock.json">
-      <publishTime>11/12/2017 13:40:58</publishTime>
+      <publishTime>12/11/2017 13:40:58</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>11/12/2017 13:40:58</publishTime>
+      <publishTime>12/11/2017 13:40:58</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/27/2017 09:42:08</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
   </ItemGroup>
 </Project>
