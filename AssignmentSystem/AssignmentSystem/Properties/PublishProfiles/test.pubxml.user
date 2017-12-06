@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>I:\Website</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApplicationInsights.config">
+      <publishTime>12/11/2017 13:40:56</publishTime>
+    </File>
+    <File Include="App_Data/TandDB.mdf">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="App_Data/TandDB_log.ldf">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Assignments.aspx">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/ApplicationInsights.config">
+      <publishTime>12/11/2017 13:40:56</publishTime>
+    </File>
+    <File Include="bin/AssignmentSystem.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
+      <publishTime>12/11/2017 13:40:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.dll">
+      <publishTime>12/11/2017 13:40:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
+      <publishTime>12/11/2017 13:40:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
+      <publishTime>12/11/2017 13:40:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.dll">
+      <publishTime>12/11/2017 13:40:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.dll">
+      <publishTime>12/11/2017 13:40:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>12/11/2017 13:40:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>12/11/2017 13:40:57</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>12/11/2017 13:41:00</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>12/11/2017 13:41:00</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>12/11/2017 13:41:00</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>12/11/2017 13:41:00</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>12/11/2017 13:41:00</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>12/11/2017 13:41:00</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>12/11/2017 13:41:00</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>12/11/2017 13:41:00</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>12/11/2017 13:41:00</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>12/11/2017 13:41:00</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>12/11/2017 13:41:01</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>12/11/2017 13:41:01</publishTime>
+    </File>
+    <File Include="ClassDiagram1.cd">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/css/bootstrap-grid.css">
+      <publishTime>12/11/2017 13:57:27</publishTime>
+    </File>
+    <File Include="Content/css/bootstrap-grid.css.map">
+      <publishTime>12/11/2017 13:57:27</publishTime>
+    </File>
+    <File Include="Content/css/bootstrap-grid.min.css">
+      <publishTime>12/11/2017 13:57:27</publishTime>
+    </File>
+    <File Include="Content/css/bootstrap-grid.min.css.map">
+      <publishTime>12/11/2017 13:57:27</publishTime>
+    </File>
+    <File Include="Content/css/bootstrap-reboot.css">
+      <publishTime>12/11/2017 13:57:27</publishTime>
+    </File>
+    <File Include="Content/css/bootstrap-reboot.css.map">
+      <publishTime>12/11/2017 13:57:27</publishTime>
+    </File>
+    <File Include="Content/css/bootstrap-reboot.min.css">
+      <publishTime>12/11/2017 13:57:28</publishTime>
+    </File>
+    <File Include="Content/css/bootstrap-reboot.min.css.map">
+      <publishTime>12/11/2017 13:57:28</publishTime>
+    </File>
+    <File Include="Content/css/bootstrap.css">
+      <publishTime>12/11/2017 13:57:28</publishTime>
+    </File>
+    <File Include="Content/css/bootstrap.css.map">
+      <publishTime>12/11/2017 13:57:28</publishTime>
+    </File>
+    <File Include="Content/css/bootstrap.min.css">
+      <publishTime>12/11/2017 13:57:28</publishTime>
+    </File>
+    <File Include="Content/css/bootstrap.min.css.map">
+      <publishTime>12/11/2017 13:57:28</publishTime>
+    </File>
+    <File Include="Content/Form-Signin.css">
+      <publishTime>12/11/2017 14:16:12</publishTime>
+    </File>
+    <File Include="Content/js/bootstrap.bundle.js">
+      <publishTime>12/11/2017 13:57:27</publishTime>
+    </File>
+    <File Include="Content/js/bootstrap.bundle.js.map">
+      <publishTime>12/11/2017 13:57:27</publishTime>
+    </File>
+    <File Include="Content/js/bootstrap.bundle.min.js">
+      <publishTime>12/11/2017 13:57:27</publishTime>
+    </File>
+    <File Include="Content/js/bootstrap.bundle.min.js.map">
+      <publishTime>12/11/2017 13:57:27</publishTime>
+    </File>
+    <File Include="Content/js/bootstrap.js">
+      <publishTime>12/11/2017 13:57:27</publishTime>
+    </File>
+    <File Include="Content/js/bootstrap.js.map">
+      <publishTime>12/11/2017 13:57:27</publishTime>
+    </File>
+    <File Include="Content/js/bootstrap.min.js">
+      <publishTime>12/11/2017 13:57:27</publishTime>
+    </File>
+    <File Include="Content/js/bootstrap.min.js.map">
+      <publishTime>12/11/2017 13:57:27</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>12/11/2017 13:40:57</publishTime>
+    </File>
+    <File Include="Login-Page.aspx">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="package-lock.json">
+      <publishTime>12/11/2017 13:40:58</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>12/11/2017 13:40:58</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
