@@ -24,29 +24,29 @@
             <br />
             <div>
 
-                <asp:GridView ID="OpgaveView" runat="server" AllowPaging="True" PageSize="20" AutoGenerateColumns="False" DataKeyNames="AktivitetId" DataSourceID="TandDBSource" GridLines="None" CssClass="table table-light table-hover">
+                <asp:GridView ID="OpgaveView" runat="server" AllowPaging="True" PageSize="20" AutoGenerateColumns="False" DataKeyNames="AktivitetId" DataSourceID="TandDBSource" GridLines="None" CssClass="table table-light table-hover" OnRowDeleting="OpgaveView_RowDeleting" OnRowUpdating="OpgaveView_RowUpdating">
                     <Columns>
                         <asp:BoundField DataField="AktivitetId" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="AktivitetId" />
                         <asp:BoundField DataField="AktivitetTitel" HeaderText="Titel" SortExpression="AktivitetTitel" />
                         <asp:BoundField DataField="AktivitetBeskrivelse" HeaderText="Beskrivelse" SortExpression="AktivitetBeskrivelse" />
-                        <asp:BoundField DataField="AktivitetDato" HeaderText="Dato" SortExpression="AktivitetDato" ReadOnly="True" />
-                        <asp:BoundField DataField="AktivitetAnsvarlig" HeaderText="Ansvarlig" SortExpression="AktivitetAnsvarlig" ReadOnly="True" />
+                        <asp:BoundField DataField="AktivitetDato" HeaderText="Dato" SortExpression="AktivitetDato"  ReadOnly="True" />
+                        <asp:BoundField DataField="AktivitetAnsvarlig" HeaderText="Oprettet af" SortExpression="AktivitetAnsvarlig" ReadOnly="True" />
                     </Columns>
                 </asp:GridView>
 
-                <asp:SqlDataSource ID="TandDBSource" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionConString %>" SelectCommand="SELECT [AktivitetId], [AktivitetTitel], [AktivitetBeskrivelse], [AktivitetAnsvarlig], [AktivitetDato] FROM [Opgaver]" DeleteCommand="DELETE FROM [Opgaver] WHERE [AktivitetId] = @original_AktivitetId AND [AktivitetTitel] = @original_AktivitetTitel AND [AktivitetBeskrivelse] = @original_AktivitetBeskrivelse AND [AktivitetAnsvarlig] = @original_AktivitetAnsvarlig AND [AktivitetDato] = @original_AktivitetDato" ConflictDetection="CompareAllValues" InsertCommand="INSERT INTO [Opgaver] ([AktivitetTitel], [AktivitetBeskrivelse], [AktivitetAnsvarlig], [AktivitetDato]) VALUES (@AktivitetTitel, @AktivitetBeskrivelse, @AktivitetAnsvarlig, @AktivitetDato)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [Opgaver] SET [AktivitetTitel] = @AktivitetTitel, [AktivitetBeskrivelse] = @AktivitetBeskrivelse  WHERE [AktivitetId] = @original_AktivitetId AND [AktivitetTitel] = @original_AktivitetTitel AND [AktivitetBeskrivelse] = @original_AktivitetBeskrivelse" OnSelecting="TandDBSource_Selecting">
+                <asp:SqlDataSource ID="TandDBSource" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionConString %>" SelectCommand="SELECT [AktivitetId], [AktivitetTitel], [AktivitetBeskrivelse], [AktivitetDato], [AktivitetAnsvarlig] FROM [Opgaver]" DeleteCommand="DELETE FROM [Opgaver] WHERE [AktivitetId] = @original_AktivitetId AND [AktivitetTitel] = @original_AktivitetTitel AND [AktivitetBeskrivelse] = @original_AktivitetBeskrivelse AND [AktivitetDato] = @original_AktivitetDato AND [AktivitetAnsvarlig] = @original_AktivitetAnsvarlig" ConflictDetection="CompareAllValues" InsertCommand="INSERT INTO [Opgaver] ([AktivitetTitel], [AktivitetBeskrivelse], [AktivitetDato], [AktivitetAnsvarlig]) VALUES (@AktivitetTitel, @AktivitetBeskrivelse, @AktivitetDato, @AktivitetAnsvarlig)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [Opgaver] SET [AktivitetTitel] = @AktivitetTitel, [AktivitetBeskrivelse] = @AktivitetBeskrivelse WHERE [AktivitetId] = @original_AktivitetId AND [AktivitetTitel] = @original_AktivitetTitel AND [AktivitetBeskrivelse] = @original_AktivitetBeskrivelse " OnSelecting="TandDBSource_Selecting">
                     <DeleteParameters>
                         <asp:Parameter Name="original_AktivitetId" Type="Int32" />
                         <asp:Parameter Name="original_AktivitetTitel" Type="String" />
                         <asp:Parameter Name="original_AktivitetBeskrivelse" Type="String" />
+                        <asp:Parameter Name="original_AktivitetDato" Type="DateTime" />
                         <asp:Parameter Name="original_AktivitetAnsvarlig" Type="String" />
-                        <asp:Parameter DbType="Date" Name="original_AktivitetDato" />
                     </DeleteParameters>
                     <InsertParameters>
                         <asp:Parameter Name="AktivitetTitel" Type="String" />
                         <asp:Parameter Name="AktivitetBeskrivelse" Type="String" />
+                        <asp:Parameter Name="AktivitetDato" Type="DateTime" />
                         <asp:Parameter Name="AktivitetAnsvarlig" Type="String" />
-                        <asp:Parameter DbType="Date" Name="AktivitetDato" />
                     </InsertParameters>
                     <UpdateParameters>
                         <asp:Parameter Name="AktivitetTitel" Type="String" />
@@ -65,21 +65,17 @@
                         <h2 class="text text-capitalize">Tilføj Opgave</h2>
                         <div class="panel-body">
                             <div>
-                                <div class="col-md-4">
+                                <div class="col-md-5">
                                     <asp:Label runat="server">Titel</asp:Label>
                                     <br />
                                     <asp:TextBox runat="server" ID="tb_Titel" CssClass="form-control" placeholder="Titel"></asp:TextBox>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-5">
                                     <asp:Label runat="server">Beskrivelse</asp:Label>
                                     <br />
                                     <asp:TextBox runat="server" ID="tb_Beskrivelse" CssClass="form-control" placeholder="beskrivelse" TextMode="MultiLine"></asp:TextBox>
                                 </div>
-                                <div class="col-md-4">
-                                    <asp:Label runat="server">Ansvarlig</asp:Label>
-                                    <br />
-                                    <asp:TextBox runat="server" ID="tb_ansvarlig" CssClass="form-control" placeholder="ansvarlig"></asp:TextBox>
-                                </div>
+
                                 <asp:Label runat="server" ID="lbl_Result"></asp:Label>
                             </div>
                             <div class="col-md-2 pull-right">
@@ -89,6 +85,36 @@
                         </div>
                     </div>
                 </div>
+<%--                <div runat="server" id="Div_UserPanel">
+                    <div class="panel panel-default">
+                        <h2 class="text text-capitalize">Tilføj Bruger</h2>
+                        <div class="panel-body">
+                            <div>
+                                <div class="col-md-4">
+                                    <asp:Label runat="server">Username</asp:Label>
+                                    <br />
+                                    <asp:TextBox runat="server" ID="tb_Username" CssClass="form-control" placeholder="Username"></asp:TextBox>
+                                </div>
+                                <div class="col-md-4">
+                                    <asp:Label runat="server">Password</asp:Label>
+                                    <br />
+                                    <asp:TextBox runat="server" ID="tb_Password" CssClass="form-control" placeholder="Password" TextMode="Password"></asp:TextBox>
+                                </div>
+                                <div class="col-md-4">
+                                    <asp:Label runat="server">Ansvarlig</asp:Label>
+                                    <br />
+                                    <asp:TextBox runat="server" ID="TextBox3" CssClass="form-control" placeholder="ansvarlig"></asp:TextBox>
+                                </div>
+                                <asp:Label runat="server" ID="Label1"></asp:Label>
+                            </div>
+
+                            <div class="col-md-2 pull-right">
+                                <br />
+                                <asp:Button runat="server" ID="Button1" CssClass="form-control" OnClick="btn_Insert_OnClick" Text="Tilføj" />
+                            </div>
+                        </div>
+                    </div>
+                </div>--%>
 
                 <div class="pull-right">
                     <asp:Button runat="server" ID="btn_Logout" Text="Logout" CssClass="btn btn-danger btn-lg" OnClick="btn_Logout_OnClick" CausesValidation="False" />

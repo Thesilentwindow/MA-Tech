@@ -20,7 +20,7 @@ namespace AssignmentSystem
         {
             CompName = compName;
         }
-
+        [Obsolete("Doesn't work outside of developement environment", true)]
         public bool IsPcOnDomain()
         {
             PrincipalContext pc = new PrincipalContext(ContextType.Domain, Domain);

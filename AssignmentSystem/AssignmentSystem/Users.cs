@@ -12,7 +12,8 @@ namespace AssignmentSystem
     public class Users
     {
         private const string Domain = "tand.local";
-        
+        private Logger _log;
+
 
         public string Username { get; set; }
         public string Password { get; set; }
@@ -27,7 +28,7 @@ namespace AssignmentSystem
         {
             Username = username;
             Password = password;
-            Authority = GetUserAuthLevel();
+            
         }
 
         public Users()
@@ -63,14 +64,15 @@ namespace AssignmentSystem
                 return isValid;
             }
         }
+
+
         public string GetAccountDisplayInfo()
         {
             try
             {
                 PrincipalContext pc = new PrincipalContext(ContextType.Domain, Domain);
-                UserPrincipal user = new UserPrincipal(pc);
+                UserPrincipal user = new UserPrincipal(pc) {SamAccountName = Username};
 
-                user.SamAccountName = Username;
 
                 PrincipalSearcher searcher = new PrincipalSearcher(user);
                 UserPrincipal resultPrincipal = (UserPrincipal)searcher.FindOne();
@@ -79,9 +81,10 @@ namespace AssignmentSystem
                 string resultToRturn = "Welcome: " + resultPrincipal.DisplayName + " !";
                 return resultToRturn;
             }
-            catch (Exception ex)
+            catch (ArgumentException e)
             {
-                
+                _log = new Logger("0101", e.Message, "Fetch User Info");
+                _log.Log();
                 return string.Empty;
             }
         }
@@ -102,6 +105,8 @@ namespace AssignmentSystem
                 }
                 catch (LdapException e)
                 {
+                    _log = new Logger(e.ErrorCode.ToString(), e.Message, "LoginValidation");
+                    _log.Log();
                     return false;
                     //Todo add logging of exception
                 }
@@ -109,48 +114,73 @@ namespace AssignmentSystem
             return true;
         }
 
-        private int GetUserAuthLevel() //Bruges i constructor der tager Username og Password
+        public void SetUserAuthLvl() //Bruges i constructor der tager Username og Password
         {
-            //domæne context
-            PrincipalContext pContext = new PrincipalContext(ContextType.Domain, Domain);
-
-            //her finder man gruppen som man leder efter
-            GroupPrincipal GuestGroup = GroupPrincipal.FindByIdentity(pContext, "WebGuests");
-            GroupPrincipal userGroup = GroupPrincipal.FindByIdentity(pContext, "Webusers");
-            GroupPrincipal adminGroup = GroupPrincipal.FindByIdentity(pContext, "WebAdmins");
-
-            //findes gruppen gå videre
-            if (adminGroup != null)
+            try
             {
-                foreach (Principal adminPrincipal in adminGroup.GetMembers())
+                //domæne context
+                PrincipalContext pContext = new PrincipalContext(ContextType.Domain, Domain);
+
+                //her finder man gruppen som man leder efter
+                GroupPrincipal guestGroup = GroupPrincipal.FindByIdentity(pContext, "WebGuests");
+                GroupPrincipal userGroup = GroupPrincipal.FindByIdentity(pContext, "WebUsers");
+                GroupPrincipal adminGroup = GroupPrincipal.FindByIdentity(pContext, "WebAdmins");
+
+                //findes gruppen gå videre
+                if (adminGroup != null)
                 {
-                    if (adminPrincipal.SamAccountName == Username)
+                    foreach (Principal adminPrincipal in adminGroup.GetMembers())
                     {
-                        return 3;
-                    }
-                } 
-            }else if (userGroup != null)
-            {
-                foreach (Principal userPrincipal in userGroup.GetMembers())
-                {
-                    if (userPrincipal.SamAccountName == Username)
-                    {
-                        return 2;
+                        if (adminPrincipal.SamAccountName == Username)
+                        {
+                            Authority = 3;
+                        }
                     }
                 }
-            }
-            else if (GuestGroup != null)
-            {
-                foreach (Principal guestPrincipal in GuestGroup.GetMembers())
+
+                if (userGroup != null)
                 {
-                    if (guestPrincipal.SamAccountName == Username)
+                    foreach (Principal userPrincipal in userGroup.GetMembers())
                     {
-                        return 1;
+                        if (userPrincipal.SamAccountName == Username)
+                        {
+                            Authority = 2;
+                        }
                     }
                 }
+
+                if (guestGroup != null)
+                {
+                    foreach (Principal guestPrincipal in guestGroup.GetMembers())
+                    {
+                        if (guestPrincipal.SamAccountName == Username)
+                        {
+                            Authority = 1;
+                        }
+                    }
+                }
+
             }
-            return 0;
+            catch (ArgumentException e)
+            {
+                _log = new Logger("0101", e.Message, "LoginValidation");
+                _log.Log();
+            }
 
         }
+
+        //public bool CreateUser()
+        //{
+        //    PrincipalContext p = new PrincipalContext(ContextType.Domain, Domain);
+
+        //    UserPrincipal creationPrincipal = new UserPrincipal(p, Username, Password, true);
+
+
+
+
+        //}
+
+
+
     }
 }

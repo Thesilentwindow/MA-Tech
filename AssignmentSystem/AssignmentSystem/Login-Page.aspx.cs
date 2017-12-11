@@ -17,7 +17,7 @@ namespace AssignmentSystem
     {
         //Global Variables
         private Users _user;
-        private Computers _computer;
+        private Logger _log;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -29,31 +29,28 @@ namespace AssignmentSystem
         protected void btn_Login_OnClick(object sender, EventArgs e)
         {
             _user = new Users(tb_Username.Text, tb_Password.Text);
-            _computer = new Computers(Environment.MachineName);
 
-            bool isPcValid = _computer.IsPcOnDomain();
-
-            if (isPcValid)
+            if (_user.LoginValidation())
             {
-                if (_user.LoginValidation())
-                {
-                    //Setting Session Variables
-                    Session["LoggedIn"] = 1;
-                    Session["Account"] = _user.GetAccountDisplayInfo();
-                    Session["User"] = _user.Username;
-                    Session["Authority"] = _user.Authority;
+                //Setting Session Variables
+                Session["LoggedIn"] = 1;
+                Session["Account"] = _user.GetAccountDisplayInfo();
+                Session["User"] = _user.Username;
 
-                    Response.Redirect("Assignments.aspx");
-                }
-                else
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Prøv igen, hvis problemet fortsætter, så kontakt en administrator" + "');", true);
-                }
+                _user.SetUserAuthLvl();
+
+                Session["Authority"] = _user.Authority;
+
+                _log = new Logger("0", "User " + "'" + Session["User"] + "'" + " has logged in" , "Login attempt");
+                _log.Log();
+
+                Response.Redirect("Assignments.aspx");
             }
             else
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Computeren er ikke en del af domænet, kontakt en administrator." + "');", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Prøv igen, hvis problemet fortsætter, så kontakt en administrator" + "');", true);
             }
         }
+
     }
 }

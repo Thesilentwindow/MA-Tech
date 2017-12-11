@@ -19,13 +19,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/06/2017 09:26:09</publishTime>
     </File>
     <File Include="Assignments.aspx">
-      <publishTime>12/06/2017 11:00:23</publishTime>
+      <publishTime>12/09/2017 13:25:12</publishTime>
     </File>
     <File Include="bin/ApplicationInsights.config">
       <publishTime>11/12/2017 13:40:56</publishTime>
     </File>
     <File Include="bin/AssignmentSystem.dll">
-      <publishTime>12/06/2017 11:02:40</publishTime>
+      <publishTime>12/11/2017 07:43:28</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>11/12/2017 13:40:56</publishTime>

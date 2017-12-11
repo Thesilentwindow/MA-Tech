@@ -76,15 +76,6 @@ namespace AssignmentSystem {
         protected global::System.Web.UI.WebControls.TextBox tb_Beskrivelse;
         
         /// <summary>
-        /// tb_ansvarlig control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_ansvarlig;
-        
-        /// <summary>
         /// lbl_Result control.
         /// </summary>
         /// <remarks>

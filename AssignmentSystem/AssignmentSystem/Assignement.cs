@@ -8,13 +8,15 @@ namespace AssignmentSystem
 
     public class Assignment
     {
+        private SqlConnection con =
+            new SqlConnection(ConfigurationManager.ConnectionStrings["ProductionConString"].ConnectionString);
 
         public string Title { get; set; }
         public string Description { get; set; }
         public string Responsible { get; set; }
         public DateTime Date { get; set; }
 
-        private readonly SqlConnection _con = new SqlConnection(ConfigurationManager.ConnectionStrings["ProductionConString"].ConnectionString);
+        private Logger _log;
 
         public Assignment(string title, string description, string responsible, DateTime date)
         {
@@ -24,33 +26,34 @@ namespace AssignmentSystem
             Date = date;
         }
 
-        public string InsertToTable()
+        public bool InsertToTable()
         {
             string AddAssignment = "insert into Opgaver (AktivitetTitel, AktivitetBeskrivelse, AktivitetDato, AktivitetAnsvarlig) Values(@Title, @Description, @Date, @Responsible)";
-            SqlCommand cmd = new SqlCommand(AddAssignment, _con);
 
-            if (Title != string.Empty && Description != string.Empty && Responsible != string.Empty)
-            {
-                cmd.Parameters.AddWithValue("@Title", Title);
-                cmd.Parameters.AddWithValue("@Description", Description);
-                cmd.Parameters.AddWithValue("@Date", Date);
-                cmd.Parameters.AddWithValue("@Responsible", Responsible);
-            }
-
-
-            using (_con)
+            using (con)
+            using (SqlCommand cmd = new SqlCommand(AddAssignment, con))
             {
                 try
                 {
-                    _con.Open();
+                    if (Title != string.Empty && Description != string.Empty && Responsible != string.Empty)
+                    {
+                        cmd.Parameters.AddWithValue("@Title", Title);
+                        cmd.Parameters.AddWithValue("@Description", Description);
+                        cmd.Parameters.AddWithValue("@Date", Date);
+                        cmd.Parameters.AddWithValue("@Responsible", Responsible);
+                    }
+
+                    con.Open();
                     cmd.ExecuteNonQuery();
-                    _con.Close();
-                    return "success";
+                    con.Close();
+
+                    return true;
                 }
                 catch (Exception e)
                 {
-                    return "Failed";
-                    //TODO add logging of errors
+                    _log = new Logger("0101", e.Message, "Insert Attempt");
+                    _log.Log();
+                    return false;
                 }
             }
         }
